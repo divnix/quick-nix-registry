@@ -65,9 +65,8 @@
                 cd /nix/nixpkgs
                 git remote update --prune
 
-
                 # ensure all remote branches exist locally and track upstream
-                for branch in $(git branch -r | tail -n +2) do
+                for branch in $(git branch -r | tail -n +2); do
                   git branch ${"\${branch#*/}"} $branch -f
                 done
 
