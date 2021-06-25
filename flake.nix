@@ -72,6 +72,9 @@
 
                 # delete any branch without an upstream equivalent
                 git branch -D $(git for-each-ref --format="%(if)%(upstream)%(then)%(else)%(refname:short)%(end)" refs/heads) || true
+
+                # delete any unmerged branches that no longer exist on remote (backports, reversions)
+                git branch -D $(git branch -vv | awk '/: gone]/{print $1}') || true
               '';
               ExecStart = pkgs.writeShellScript "sync-nixpkgs" ''
                 cd /nix/nixpkgs
