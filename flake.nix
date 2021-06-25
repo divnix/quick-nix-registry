@@ -55,7 +55,7 @@
           systemd.services.sync-nixpkgs = {
             description = "Sync a local nixpkgs with the GutHub remote";
             after = [ "network.target" ];
-            path = with pkgs; [ git hub coreutils ];
+            path = with pkgs; [ git hub coreutils gawk ];
             serviceConfig = {
               ExecStartPre = pkgs.writeShellScript "sync-pre" ''
                 if ! git ls-remote /nix/nixpkgs -0 &> /dev/null; then
