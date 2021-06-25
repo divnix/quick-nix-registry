@@ -5,7 +5,7 @@
   inputs.globalRegistry.flake = false;
 
   outputs = { globalRegistry, ... }: {
-    nixosModules.local-registry = { config, lib, ... }:
+    nixosModules.local-registry = { config, lib, pkgs, ... }:
       let cfg = config.nix.localRegistry;
       in {
         options = {
