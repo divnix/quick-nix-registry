@@ -71,7 +71,7 @@
                 done
 
                 # delete any branch without an upstream equivalent
-                git branch -D $(git for-each-ref --format="%(if)%(upstream)%(then)%(else)%(refname:short)%(end)" refs/heads)
+                git branch -D $(git for-each-ref --format="%(if)%(upstream)%(then)%(else)%(refname:short)%(end)" refs/heads) || true
               '';
               ExecStart = pkgs.writeShellScript "sync-nixpkgs" ''
                 cd /nix/nixpkgs
