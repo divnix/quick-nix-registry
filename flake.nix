@@ -35,7 +35,7 @@
             from.id = "nixpkgs";
             from.type = "indirect";
             to.url = "file:///nix/nixpkgs";
-            to.type = "git";
+            to.type = lib.mkForce "git";
           };
 
           systemd.timers.sync-nixpkgs = {
