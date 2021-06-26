@@ -30,12 +30,12 @@
           in lib.mkIf (cfg.cacheGlobalRegistry || cfg.noGlobalRegistry)
           "flake-registry = ${registry}";
 
-          nix.registry.nixpkgs = {
+          nix.registry.nixpkgs = lib.mkForce {
             exact = false;
             from.id = "nixpkgs";
             from.type = "indirect";
             to.url = "file:///nix/nixpkgs";
-            to.type = lib.mkForce "git";
+            to.type = "git";
           };
 
           systemd.timers.sync-nixpkgs = {
