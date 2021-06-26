@@ -59,7 +59,7 @@
             serviceConfig = {
               ExecStartPre = pkgs.writeShellScript "sync-pre" ''
                 if ! git ls-remote /nix/nixpkgs -0 &> /dev/null; then
-                  git clone --quiet https://github.com/NixOS/nixpkgs.git /etc/nixpkgs
+                  git clone --quiet https://github.com/NixOS/nixpkgs.git /nix/nixpkgs
                 fi
 
                 cd /nix/nixpkgs
