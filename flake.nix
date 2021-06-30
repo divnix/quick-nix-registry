@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "A NixOS Module to setup a local nixpkgs mirror";
 
   inputs.globalRegistry.url = "github:NixOS/flake-registry";
   inputs.globalRegistry.flake = false;
