@@ -53,7 +53,7 @@
           };
 
           systemd.services.sync-nixpkgs = {
-            description = "Sync a local nixpkgs with the GutHub remote";
+            description = "Sync a local nixpkgs with the GitHub remote";
             after = [ "network.target" ];
             path = with pkgs; [ git hub coreutils gawk ];
             serviceConfig = {
