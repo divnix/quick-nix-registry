@@ -82,6 +82,7 @@
                 # update heads of local branches
                 hub sync
               '';
+              TimeoutSec = 900;
             };
           };
         };
